@@ -1,0 +1,164 @@
+:root {
+  --navy-900: #0a1238;
+  --navy-800: #0f1f5c;
+  --navy-600: #1a2f8a;
+  --yellow: #ffe11a;
+  --yellow-dark: #e6b800;
+  --white: #ffffff;
+  --muted: #c9d1f5;
+  --error: #ff8a8a;
+}
+
+* { box-sizing: border-box; }
+
+html, body { margin: 0; }
+
+body {
+  min-height: 100vh;
+  font-family: "Poppins", system-ui, sans-serif;
+  color: var(--white);
+  background-color: var(--navy-800);
+  background-image:
+    repeating-conic-gradient(from 0deg at 50% 18%, rgba(255,255,255,.045) 0deg 6deg, transparent 6deg 14deg),
+    radial-gradient(circle at 50% 18%, var(--navy-600) 0%, var(--navy-800) 55%, var(--navy-900) 100%);
+  background-attachment: fixed;
+  overflow-x: hidden;
+}
+
+.page {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 24px 16px 32px;
+}
+
+.hero { text-align: center; }
+
+.logo {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--yellow);
+  box-shadow: 0 0 0 6px var(--navy-900), 0 12px 40px rgba(0,0,0,.45);
+}
+
+h1 {
+  font-family: "Lobster", cursive;
+  font-weight: 400;
+  font-size: clamp(2rem, 8vw, 2.6rem);
+  line-height: 1.1;
+  margin: 20px 0 8px;
+  color: var(--white);
+  text-shadow: 3px 3px 0 var(--navy-900);
+}
+
+h1 span { color: var(--yellow); }
+
+.sub { color: var(--muted); margin: 0 auto; max-width: 36ch; line-height: 1.5; }
+
+.card {
+  margin-top: 24px;
+  background: rgba(10, 18, 56, .82);
+  border: 2px solid var(--yellow);
+  border-radius: 20px;
+  padding: 22px 18px;
+  box-shadow: 0 16px 40px rgba(0,0,0,.4);
+}
+
+.card h2 {
+  font-family: "Lobster", cursive;
+  font-weight: 400;
+  color: var(--yellow);
+  text-align: center;
+  font-size: 1.8rem;
+  margin: 0 0 14px;
+}
+
+.field { display: block; margin: 0 0 14px; border: 0; padding: 0; }
+
+.field > span, .field legend {
+  display: block;
+  font-weight: 600;
+  font-size: .92rem;
+  margin-bottom: 6px;
+}
+
+input[type="text"], input[type="tel"] {
+  width: 100%;
+  font: inherit;
+  font-size: 1rem;
+  padding: 14px 14px;
+  border-radius: 12px;
+  border: 2px solid transparent;
+  background: var(--white);
+  color: var(--navy-900);
+  outline: none;
+}
+
+input[type="text"]:focus, input[type="tel"]:focus { border-color: var(--yellow); box-shadow: 0 0 0 3px rgba(255,225,26,.35); }
+
+.invalid input[type="text"], .invalid input[type="tel"] { border-color: var(--error); }
+
+.error { display: block; color: var(--error); font-size: .82rem; min-height: 1em; margin-top: 4px; }
+
+.options { display: grid; gap: 10px; }
+
+.option { position: relative; cursor: pointer; }
+
+.option input { position: absolute; opacity: 0; pointer-events: none; }
+
+.option .box {
+  display: block;
+  padding: 14px;
+  border-radius: 12px;
+  border: 2px solid var(--muted);
+  font-weight: 800;
+  font-size: .95rem;
+  text-align: center;
+  transition: background .15s, color .15s, border-color .15s;
+}
+
+.option input:checked + .box { background: var(--yellow); color: var(--navy-900); border-color: var(--yellow); }
+.option input:focus-visible + .box { box-shadow: 0 0 0 3px rgba(255,225,26,.5); }
+
+.cta {
+  width: 100%;
+  margin-top: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font: inherit;
+  font-weight: 800;
+  font-size: 1.08rem;
+  letter-spacing: .3px;
+  color: var(--navy-900);
+  background: var(--yellow);
+  border: 0;
+  border-radius: 14px;
+  padding: 16px;
+  cursor: pointer;
+  box-shadow: 0 6px 0 var(--yellow-dark), 0 10px 24px rgba(0,0,0,.35);
+  transition: transform .1s, box-shadow .1s;
+}
+
+.cta:active { transform: translateY(4px); box-shadow: 0 2px 0 var(--yellow-dark); }
+.cta[disabled] { opacity: .7; cursor: wait; }
+
+.privacy { font-size: .78rem; color: var(--muted); text-align: center; margin: 12px 0 0; }
+
+.perks { display: grid; gap: 10px; margin-top: 24px; }
+
+.perk {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255,255,255,.06);
+  border-left: 4px solid var(--yellow);
+  border-radius: 10px;
+  padding: 12px 14px;
+}
+
+.perk b { font-size: 1.3rem; }
+
+.footer { text-align: center; color: var(--muted); font-size: .8rem; margin-top: 28px; }
