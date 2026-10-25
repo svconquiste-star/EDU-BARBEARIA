@@ -68,8 +68,7 @@
         clearTimeout(timer);
         if (window.fbq) fbq('track', 'Contact', { content_name: dados.servico });
 
-        var pedido = dados.servico === 'AGENDAR ATENDIMENTO' ? 'Quero agendar um atendimento.' : 'Quero tirar dúvidas.';
-        var texto = 'Olá! Meu nome é ' + dados.nome + ', sou de ' + dados.cidade + '. ' + pedido;
+        var texto = 'Olá! Quero Falar Com Atendimento.';
         var url = 'https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(texto);
         window.__waUrl = url;
         // Pequena espera para o pixel enviar o evento antes de sair da página

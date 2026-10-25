@@ -162,3 +162,6 @@ input[type="text"]:focus, input[type="tel"]:focus { border-color: var(--yellow);
 .perk b { font-size: 1.3rem; }
 
 .footer { text-align: center; color: var(--muted); font-size: .8rem; margin-top: 28px; }
+.footer p { margin: 0 0 4px; }
+.footer a { color: var(--yellow); text-decoration: none; font-weight: 600; }
+.footer a:hover { text-decoration: underline; }
