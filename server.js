@@ -3,7 +3,7 @@ const path = require('path');
 const express = require('express');
 const { Pool } = require('pg');
 
-const SERVICOS = ['AGENDAR ATENDIMENTO', 'QUERO TIRAR DÚVIDAS'];
+const SERVICOS = ['FAZER ASSINATURA AGORA', 'AGENDAR ATENDIMENTO', 'QUERO TIRAR DÚVIDAS'];
 const pool = new Pool({ connectionString: process.env.DATABASE_URL });
 const app = express();
 
@@ -18,12 +18,17 @@ async function prepararBanco() {
       nome       TEXT NOT NULL,
       telefone   TEXT NOT NULL,
       cidade     TEXT NOT NULL,
-      servico    TEXT NOT NULL CHECK (servico IN ('AGENDAR ATENDIMENTO','QUERO TIRAR DÚVIDAS')),
+      servico    TEXT NOT NULL,
       origem     TEXT,
       user_agent TEXT,
       criado_em  TIMESTAMPTZ DEFAULT now()
     )`);
   await pool.query('ALTER TABLE "Barbearia_Edu".leads ADD COLUMN IF NOT EXISTS cidade TEXT');
+  // Recria a regra de serviços válidos a partir da lista SERVICOS
+  const lista = SERVICOS.map((s) => `'${s}'`).join(',');
+  await pool.query(`
+    ALTER TABLE "Barbearia_Edu".leads DROP CONSTRAINT IF EXISTS leads_servico_check;
+    ALTER TABLE "Barbearia_Edu".leads ADD CONSTRAINT leads_servico_check CHECK (servico IN (${lista}));`);
   console.log('Banco: tabela "Barbearia_Edu".leads pronta');
 }
 
@@ -52,7 +57,7 @@ app.post('/api/leads', async (req, res) => {
   }
 });
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3010;
 prepararBanco()
   .catch((err) => console.error('Erro ao preparar banco:', err.message))
   .finally(() => app.listen(PORT, () => console.log(`LP rodando em http://localhost:${PORT}`)));

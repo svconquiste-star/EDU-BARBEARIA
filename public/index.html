@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Edu Barber Shop</title>
-  <meta name="description" content="Edu Barber Shop — agende seu corte ou tire suas dúvidas direto no WhatsApp.">
+  <meta name="description" content="Edu Barber Shop em Citrolândia, Betim: corte de cabelo ilimitado por R$ 69,90 por mês. Assine pelo WhatsApp.">
   <meta name="theme-color" content="#0f1f5c">
   <link rel="icon" href="logo.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -28,14 +28,57 @@
 </head>
 <body>
   <main class="page">
-    <header class="hero">
-      <img class="logo" src="logo.jpg" alt="Edu Barber Shop" width="220" height="220">
-      <h1>Seu estilo no <span>ponto certo</span></h1>
-      <p class="sub">Corte, barba e acabamento caprichado. Deixe seus dados e fale com o Edu agora no WhatsApp.</p>
+    <header class="hero" id="topo">
+      <img class="logo" src="logo.jpg" alt="Edu Barber Shop" width="120" height="120">
+      <p class="seal">Desde 2019 · Citrolândia, Betim</p>
+      <h1>Corte ilimitado por <span>R$&nbsp;69,90</span> por mês</h1>
+      <p class="sub">Corte quantas vezes quiser, de segunda a sábado. Seu estilo no ponto certo.</p>
+      <a href="#formulario" class="cta js-assinar">QUERO MEU PLANO</a>
+      <p class="micro">Atendimento pelo WhatsApp · Sem compromisso para tirar dúvidas</p>
     </header>
 
-    <section class="card" aria-labelledby="form-title">
-      <h2 id="form-title">Fale com a gente</h2>
+    <section class="block compare" aria-labelledby="compare-title">
+      <h2 id="compare-title">Faça a conta</h2>
+      <div class="compare-grid">
+        <div class="compare-col avulso">
+          <h3>Avulso</h3>
+          <ul>
+            <li><span>Corte</span><b>R$ 35</b></li>
+            <li><span>Barba</span><b>R$ 30</b></li>
+          </ul>
+          <p class="compare-total">3 cortes por mês<br><s>R$ 105</s></p>
+        </div>
+        <div class="compare-col plano">
+          <span class="badge">ASSINATURA</span>
+          <h3>Plano mensal</h3>
+          <p class="plano-desc">Corte ilimitado, de segunda a sábado</p>
+          <p class="compare-total">por mês<br><strong>R$ 69,90</strong></p>
+        </div>
+      </div>
+      <p class="saving">No 3º corte do mês você já economiza <b>R$ 35,10</b>.</p>
+    </section>
+
+    <section class="block steps" aria-labelledby="steps-title">
+      <h2 id="steps-title">Como funciona</h2>
+      <ol>
+        <li><b>1</b><span>Deixe seu nome e WhatsApp aqui embaixo.</span></li>
+        <li><b>2</b><span>Tire suas dúvidas e assine pelo WhatsApp.</span></li>
+        <li><b>3</b><span>Venha cortar quando quiser, de segunda a sábado.</span></li>
+      </ol>
+    </section>
+
+    <section class="block included" aria-labelledby="included-title">
+      <h2 id="included-title">O que está incluso</h2>
+      <ul class="checks">
+        <li>Corte de cabelo ilimitado</li>
+        <li>Vá quantas vezes quiser no mês</li>
+        <li>Válido de segunda a sábado</li>
+      </ul>
+      <p class="for-who"><b>Para quem é:</b> quem gosta do cabelo sempre na régua, sem pensar no preço de cada corte.</p>
+    </section>
+
+    <section class="card" id="formulario" aria-labelledby="form-title">
+      <h2 id="form-title">Garanta sua assinatura</h2>
       <form id="lead-form" novalidate>
         <label class="field">
           <span>Seu nome</span>
@@ -57,8 +100,16 @@
 
         <fieldset class="field options">
           <legend>O que você precisa?</legend>
+          <label class="option option-featured">
+            <input type="radio" name="servico" value="FAZER ASSINATURA AGORA" required checked>
+            <span class="box">
+              <span class="badge">MAIS VANTAJOSO</span>
+              <span class="featured-title">⭐ FAZER ASSINATURA AGORA!</span>
+              <span class="featured-sub">Corte ilimitado · pagamento mensal</span>
+            </span>
+          </label>
           <label class="option">
-            <input type="radio" name="servico" value="AGENDAR ATENDIMENTO" required>
+            <input type="radio" name="servico" value="AGENDAR ATENDIMENTO">
             <span class="box">✂️ AGENDAR ATENDIMENTO</span>
           </label>
           <label class="option">
@@ -72,21 +123,88 @@
           <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.5-.3z"/></svg>
           <span class="cta-label">CHAMAR NO WHATSAPP</span>
         </button>
-        <p class="privacy">Seus dados são usados só para o atendimento da Edu Barber Shop.</p>
+        <p class="privacy">Usamos seus dados só para falar com você sobre o atendimento. Não enviamos spam. <a href="privacidade.html">Política de privacidade</a></p>
       </form>
     </section>
 
-    <section class="perks" aria-label="Por que a Edu Barber Shop">
-      <div class="perk"><b>✂️</b><span>Cortes modernos e clássicos</span></div>
-      <div class="perk"><b>🪒</b><span>Barba na navalha com toalha quente</span></div>
-      <div class="perk"><b>⏱️</b><span>Atendimento com hora marcada</span></div>
+    <section class="gallery" aria-labelledby="gallery-title">
+      <h2 id="gallery-title">Conheça nosso espaço</h2>
+      <p class="gallery-sub">Fotos reais do nosso espaço em Citrolândia.</p>
+      <div class="gallery-track" id="gallery-track">
+        <button type="button" class="shot" data-src="img/ambiente-01.jpg"><img src="img/ambiente-01.jpg" alt="Recepção da Edu Barber Shop" loading="lazy" width="416" height="738"></button>
+        <button type="button" class="shot" data-src="img/ambiente-02.jpg"><img src="img/ambiente-02.jpg" alt="Salão com cadeiras de barbeiro" loading="lazy" width="678" height="998"></button>
+        <button type="button" class="shot" data-src="img/ambiente-03.jpg"><img src="img/ambiente-03.jpg" alt="Bancada e cadeiras de atendimento" loading="lazy" width="705" height="950"></button>
+        <button type="button" class="shot" data-src="img/ambiente-04.jpg"><img src="img/ambiente-04.jpg" alt="Cadeira de barbeiro em destaque" loading="lazy" width="689" height="1101"></button>
+      </div>
+      <div class="gallery-dots" id="gallery-dots" aria-hidden="true"></div>
+    </section>
+
+    <dialog class="lightbox" id="lightbox">
+      <button type="button" class="lightbox-close" aria-label="Fechar">×</button>
+      <img alt="">
+    </dialog>
+
+    <section class="block services" aria-labelledby="services-title">
+      <h2 id="services-title">Nossos serviços</h2>
+      <p class="services-sub">Muito além do corte: cuidado completo para o seu visual.</p>
+      <ul class="services-grid">
+        <li><span aria-hidden="true">✂️</span>Corte de cabelo</li>
+        <li><span aria-hidden="true">🧔</span>Barba</li>
+        <li><span aria-hidden="true">👁️</span>Sobrancelha</li>
+        <li><span aria-hidden="true">👂</span>Depilação de orelha na cera</li>
+        <li><span aria-hidden="true">👃</span>Depilação de nariz na cera</li>
+        <li><span aria-hidden="true">♨️</span>Barboterapia na toalha quente</li>
+        <li><span aria-hidden="true">✨</span>Luzes</li>
+        <li><span aria-hidden="true">⚪</span>Platinado</li>
+        <li><span aria-hidden="true">🌟</span>Reflexo alinhado</li>
+        <li><span aria-hidden="true">💈</span>Alisamento</li>
+      </ul>
+      <p class="services-note">Serviços avulsos, fora do plano de corte. Consulte valores no WhatsApp.</p>
+    </section>
+
+    <section class="block proof" aria-labelledby="proof-title">
+      <h2 id="proof-title">Quem somos</h2>
+      <p>Desde 2019 cuidando do visual de Citrolândia e São Joaquim de Bicas.</p>
+      <p class="insta">Instagram <b>@edu.barbershop_</b><br><small>2.391 seguidores</small></p>
+      <!-- [AVALIAÇÃO REAL COM AUTORIZAÇÃO] — preencha e remova o atributo hidden para exibir -->
+      <div class="reviews" hidden>
+        <blockquote class="review"><p>[TEXTO DA AVALIAÇÃO]</p><cite>[NOME DO CLIENTE]</cite></blockquote>
+      </div>
+    </section>
+
+    <section class="block location" aria-labelledby="location-title">
+      <h2 id="location-title">Onde estamos</h2>
+      <p class="address">Av. Dr. José Mariano, 137<br>Citrolândia, Betim/MG · CEP 32641-834</p>
+      <ul class="hours">
+        <li><span>Segunda a sábado</span><b>9h às 18h30</b></li>
+        <li><span>Domingo e feriado</span><b>até 12h</b></li>
+      </ul>
+    </section>
+
+    <section class="block faq" aria-labelledby="faq-title">
+      <h2 id="faq-title">Perguntas frequentes</h2>
+      <details><summary>Quanto custa o plano?</summary><p>R$ 69,90 por mês, com corte de cabelo ilimitado de segunda a sábado.</p></details>
+      <details><summary>A barba está inclusa?</summary><p>Não. O plano é só de corte. A barba e Corte temos outro plano caso queira adquirir!</p></details>
+      <details><summary>Onde fica a barbearia?</summary><p>Av. Dr. José Mariano, 137, Citrolândia, Betim/MG. Atendemos também quem vem de São Joaquim de Bicas.</p></details>
+      <details><summary>Qual o horário?</summary><p>Segunda a sábado, das 9h às 18h30. Domingo e feriado, até 12h.</p></details>
+      <!-- Itens com class="pendente" ficam escondidos até a resposta ser preenchida -->
+      <details class="pendente"><summary>Como funciona o pagamento?</summary><p>[PREENCHER]</p></details>
+      <details class="pendente"><summary>Tem limite de uso por dia?</summary><p>[PREENCHER]</p></details>
+      <details class="pendente"><summary>E se eu faltar ou quiser cancelar?</summary><p>[PREENCHER]</p></details>
+      <details class="pendente"><summary>Posso escolher o barbeiro?</summary><p>[PREENCHER]</p></details>
+      <details class="pendente"><summary>O plano vale no domingo?</summary><p>[PREENCHER]</p></details>
     </section>
 
     <footer class="footer">
       <p>© <span id="ano"></span> Criado por Multinexo</p>
       <a href="https://multinexo.com.br/" target="_blank" rel="noopener">multinexo.com.br</a>
+      <p class="footer-links"><a href="privacidade.html">Política de privacidade</a></p>
     </footer>
   </main>
+
+  <a href="#formulario" class="sticky-cta js-assinar" id="sticky-cta" aria-hidden="true" tabindex="-1">
+    💬 ASSINAR PELO WHATSAPP <small>R$ 69,90/mês</small>
+  </a>
   <script src="app.js"></script>
 </body>
 </html>

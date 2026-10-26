@@ -7,6 +7,62 @@
 
   document.getElementById('ano').textContent = new Date().getFullYear();
 
+  // Botões "assinar": rolam até o formulário com a assinatura marcada
+  var assinatura = form.querySelector('input[value="FAZER ASSINATURA AGORA"]');
+  document.querySelectorAll('.js-assinar').forEach(function (btn) {
+    btn.addEventListener('click', function (e) {
+      e.preventDefault();
+      assinatura.checked = true;
+      if (window.fbq) fbq('trackCustom', 'CliqueAssinatura', { local: btn.id === 'sticky-cta' ? 'barra_fixa' : 'hero' });
+      document.getElementById('formulario').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      setTimeout(function () { form.nome.focus({ preventScroll: true }); }, 500);
+    });
+  });
+
+  // Barra fixa: aparece depois do topo e some quando o formulário está na tela
+  var sticky = document.getElementById('sticky-cta');
+  var heroCta = document.querySelector('.hero .cta');
+  var cardForm = document.getElementById('formulario');
+  function atualizarBarra() {
+    var alturaTela = window.innerHeight;
+    var heroPassou = heroCta.getBoundingClientRect().bottom < 0;
+    var f = cardForm.getBoundingClientRect();
+    var formNaTela = f.top < alturaTela * 0.6 && f.bottom > alturaTela * 0.4;
+    var mostrar = heroPassou && !formNaTela;
+    sticky.classList.toggle('show', mostrar);
+    sticky.setAttribute('aria-hidden', String(!mostrar));
+    sticky.tabIndex = mostrar ? 0 : -1;
+  }
+  window.addEventListener('scroll', atualizarBarra, { passive: true });
+  window.addEventListener('resize', atualizarBarra);
+  atualizarBarra();
+
+  // Galeria do ambiente: indicadores e ampliação da foto
+  var track = document.getElementById('gallery-track');
+  var dotsBox = document.getElementById('gallery-dots');
+  var shots = track.querySelectorAll('.shot');
+  var lightbox = document.getElementById('lightbox');
+  var dots = [];
+  shots.forEach(function (shot, i) {
+    var dot = document.createElement('span');
+    if (i === 0) dot.className = 'on';
+    dotsBox.appendChild(dot);
+    dots.push(dot);
+    shot.addEventListener('click', function () {
+      lightbox.querySelector('img').src = shot.dataset.src;
+      lightbox.querySelector('img').alt = shot.querySelector('img').alt;
+      lightbox.showModal();
+    });
+  });
+  track.addEventListener('scroll', function () {
+    var largura = shots[0].offsetWidth + 12;
+    var atual = Math.round(track.scrollLeft / largura);
+    dots.forEach(function (d, i) { d.classList.toggle('on', i === atual); });
+  }, { passive: true });
+  lightbox.addEventListener('click', function (e) {
+    if (e.target === lightbox || e.target.classList.contains('lightbox-close')) lightbox.close();
+  });
+
   // Máscara (31) 99999-9999
   tel.addEventListener('input', function () {
     var d = tel.value.replace(/\D/g, '').slice(0, 11);
@@ -68,7 +124,7 @@
         clearTimeout(timer);
         if (window.fbq) fbq('track', 'Contact', { content_name: dados.servico });
 
-        var texto = 'Olá! Quero Falar Com Atendimento.';
+        var texto = 'Gostaria de saber mais sobre os planos de assinaturas!';
         var url = 'https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(texto);
         window.__waUrl = url;
         // Pequena espera para o pixel enviar o evento antes de sair da página
